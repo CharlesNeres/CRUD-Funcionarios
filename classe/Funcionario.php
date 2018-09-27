@@ -86,8 +86,8 @@ class Funcionario {
                 echo "<td>" . $row["nome"] . "</td>";
                 echo "<td>" . $row["salario"] . "</td>";
                 // echo "<td>"."<input type='hidden' value=". $row["id"] .">"."</td>"; testar depois
-                echo "<td><a href=\"processa.php?id=$id\" class='arquivos'>[ Remover ]</a></td>";
-                echo "<td><a href=\"processa.php?id=$id\" class='arquivos'>[ Alterar ]</a></td>";
+                echo "<td><a href=\"processa.php?id=$id\" name=\"action\" value=\"remove\">[ Remover ]</a></td>";
+                echo "<td><a href=\"processa.php?id=$id\" name=\"action\" value=\"update\">[ Alterar ]</a></td>";
                 // echo "<td><a href=""<button class=>Remover</button></td>";
                 // echo "<td><button class='alterar'>Alterar</button></td>";
                 echo "<tr>";
@@ -109,7 +109,7 @@ class Funcionario {
 
         
         // output data of each row
-        $row = mysqli_fetch_assoc($resultado)) 
+        $row = mysqli_fetch_assoc($resultado);
         
 
         mysqli_close($link);

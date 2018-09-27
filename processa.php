@@ -9,17 +9,38 @@
 <body>
     <?php
         //redirecionar para a pagina de cadastro
-        header("location: alterar.php");
+        header("location: index.php");
 
         require_once 'classe/Funcionario.php';
 
         $n = $_GET["nome"];
         $s = $_GET["salario"];
         $id = $_GET["id"];
-        $pessoa = listId($_GET["id"];);
+        $action = $_GET["action"];
 
         $f = new Funcionario();
-        $f->update($id, $n, $s);
+
+        switch ($action){
+            case "insert":
+                $f->save($n, $s);          
+                break;
+
+            case "update":
+                $f->update($id, $n, $s);         
+                break;
+            
+            case "remove":
+                $f->remove($id); 
+                break;
+
+            default:
+                echo "Error";
+                break;
+        }
+
+
+        
+        
         
     ?>
 </body>
