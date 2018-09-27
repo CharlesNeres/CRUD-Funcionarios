@@ -80,18 +80,37 @@ class Funcionario {
         if (mysqli_num_rows($resultado) > 0) {
                     // output data of each row
             while($row = mysqli_fetch_assoc($resultado)) {
+                $id = $row["id"];
                 echo "<tr>";
                 echo "<td>" . $row["id"] ."</td>";
                 echo "<td>" . $row["nome"] . "</td>";
                 echo "<td>" . $row["salario"] . "</td>";
                 // echo "<td>"."<input type='hidden' value=". $row["id"] .">"."</td>"; testar depois
-                echo "<td><button class='remover'>Remover</button></td>";
-                echo "<td><button class='alterar'>Alterar</button></td>";
+                echo "<td><a href=\"processa.php?id=$id\" class='arquivos'>[ Remover ]</a></td>";
+                echo "<td><a href=\"processa.php?id=$id\" class='arquivos'>[ Alterar ]</a></td>";
+                // echo "<td><a href=""<button class=>Remover</button></td>";
+                // echo "<td><button class='alterar'>Alterar</button></td>";
                 echo "<tr>";
             }
         } else {
             echo "0 results";
         }
+
+        mysqli_close($link);
+
+    }
+
+    public function listId($id) {
+        // logica para listar toodos os clientes do banc'
+        require_once 'config/conexao.php';
+
+        $query = "select * from funcionarios where id = {$id}";
+        $resultado = mysqli_query($link, $query);
+
+        
+        // output data of each row
+        $row = mysqli_fetch_assoc($resultado)) 
+        
 
         mysqli_close($link);
 

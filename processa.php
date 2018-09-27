@@ -9,16 +9,17 @@
 <body>
     <?php
         //redirecionar para a pagina de cadastro
-        header("location: cadastro.html");
+        header("location: alterar.php");
 
         require_once 'classe/Funcionario.php';
 
         $n = $_GET["nome"];
         $s = $_GET["salario"];
         $id = $_GET["id"];
+        $pessoa = listId($_GET["id"];);
 
         $f = new Funcionario();
-        $f->save($n, $s);
+        $f->update($id, $n, $s);
         
     ?>
 </body>

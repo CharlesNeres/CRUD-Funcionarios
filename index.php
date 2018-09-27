@@ -9,8 +9,6 @@
     <title>Document</title>
     <style>
 
-        
-
         table{
            width: 70%;
            margin: 0 auto; 
@@ -52,10 +50,12 @@
     ?>
     <header>
         <nav>
-            <a href="index.php">inicio</a>
-            <a href="cadastro.html">cadastrar produto</a>
+            <a href="index.php">inicio</a> 
+            <a href="cadastro.html">cadastrar produto</a>           
         </nav>
     </header>
+    
+        
         <table>
             <tr>
                 <th>id</th>
